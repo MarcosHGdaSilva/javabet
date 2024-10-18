@@ -14,11 +14,11 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth.anyRequest().authenticated())
             .oauth2Login(login -> login
-                //.userInfoEndpoint(userInfo -> userInfo.userService(userService))
-                .permitAll()
-            )
-
-        ;
+                                    .loginPage("/oauth2/authorization/google")
+                                    .userInfoEndpoint(userInfo -> userInfo.userService(userService))
+                                    .permitAll()
+                )
+                .logout(logout -> logout.logoutUrl("/logout").logoutSuccessUrl("/"));
         return http.build();
 
     }

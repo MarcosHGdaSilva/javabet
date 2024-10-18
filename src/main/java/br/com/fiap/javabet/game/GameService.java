@@ -15,4 +15,8 @@ public class GameService {
     public Game getGameById(Long id) {
         return gameRepository.findById(id).orElseThrow(() -> new RuntimeException("Game not found"));
     }
+
+    public List<Game> getAllGames() {
+        return gameRepository.findAll();
+    }
 }

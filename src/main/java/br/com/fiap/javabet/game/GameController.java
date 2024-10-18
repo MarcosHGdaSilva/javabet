@@ -29,6 +29,14 @@ public class GameController {
         this.userRepository = userRepository;
     }
 
+    @GetMapping("/")
+    public String listGames(Model model) {
+        List<Game> games = gameService.getAllGames();
+        model.addAttribute("games", games);
+        return "games";
+    }
+    
+
     @GetMapping("/games/{id}")
     public String getGameDetails(@PathVariable("id") Long id, Model model) {
         Game game = gameService.getGameById(id);
