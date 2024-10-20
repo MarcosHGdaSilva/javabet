@@ -5,8 +5,6 @@ import br.com.fiap.javabet.user.User;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Entity
 @Data
 @Table(name = "predictions")
